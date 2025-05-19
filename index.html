@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>daymian // kirka</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="sidebar.js" defer></script>
 </head>
+
 <body>
-<nav id="sidebar" class="close">
+
+    <nav id="sidebar" class="close">
         <ul>
             <li>
-                <span class="logo">CSSArena</span>
+                <span class="logo"><a href="https://daymain.xyz"><img src="imgs/pfp.jpg"></a></span>
                 <button onclick="toggleSidebar()" id="toggle-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
@@ -21,50 +24,98 @@
             </li>
             <li>
                 <a href="#textures">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:6px;"></svg>
-                        <path d="M20.5 3.5l-5.5 2.2-6-2.2-5.5 2.2v15l6-2.2 6 2.2 5.5-2.2v-15zm-6.5 15.1l-6-2.2v-12.1l6 2.2v12.1zm7-2.2l-5 2v-12.1l5-2v12.1z"/>
-                    </svg>
+                    <img src="/imgs/material-symbols_brush-outline.svg">
                     <span class="sidebarText">textures</span>
                 </a>
             </li>
             <li>
                 <a href="#crosshairs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:6px;">
-                        <circle cx="12" cy="12" r="2" />
-                        <line x1="12" y1="2" x2="12" y2="6" stroke="#fff" stroke-width="2"/>
-                        <line x1="12" y1="18" x2="12" y2="22" stroke="#fff" stroke-width="2"/>
-                        <line x1="2" y1="12" x2="6" y2="12" stroke="#fff" stroke-width="2"/>
-                        <line x1="18" y1="12" x2="22" y2="12" stroke="#fff" stroke-width="2"/>
-                    </svg>
+                    <img src="/imgs/lucide-lab_crosshair-plus.svg">
                     <span class="sidebarText">crosshairs</span>
                 </a>
             </li>
         </ul>
     </nav>
-    <main>
-        <header>
-            <h1>my kirka settings</h1>
-            <h2>this is mainly for me and so that way my stuff doesnt dissapear with discords image system</h2>
-            <h2>feel free tho to use these items aswell</h2>
-        </header>
-    </main>
-    <div class="textures">
-        <img src="imgs/txt/txt.png" alt="Texture 1">
-        <div>
-            <a href="imgs/txt/txt.png" download="texture.png">
-            <button type="button">Download</button>
-            </a>
-            <button type="button" onclick="navigator.clipboard.writeText(location.origin + '/imgs/txt/txt.png')">Copy Link</button>
+    <section id="top">
+        <main>
+            <header>
+                <h1>my kirka stuff</h1>
+                <br>
+                <h2>this is mainly for me and so that way my stuff doesnt dissapear with discords image system, along
+                    side
+                    with all my creations for kirka</h2>
+                <h2>feel free tho to use these items as well</h2>
+            </header>
+
+            <div class="textures">
+                <h1>textures</h1>
+                <div class="boxes">
+                    <div class="box">
+                        <img src="imgs/txt/txt.png" alt="Texture 1" onclick="enlargeImage(this)">
+                        <div class="buttons">
+                            <a href="imgs/txt/txt.png" download="texture.png">
+                                <button type="button">Download</button>
+                            </a>
+                            <button type="button"
+                                onclick="navigator.clipboard.writeText(location.origin + '/imgs/txt/txt.png')">Copy
+                                Link</button>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/txt/modified-basic.png" alt="Texture 2" onclick="enlargeImage(this)">
+                        <div class="buttons">
+                            <a href="imgs/txt/modified-basic.png" download="modified-basic.png">
+                                <button type="button">Download</button>
+                            </a>
+                            <button type="button"
+                                onclick="navigator.clipboard.writeText(location.origin + '/imgs/txt/modified-basic.png')">Copy
+                                Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="crosshairs">
+                <h1>crosshair</h1>
+                <div class="boxes">
+                    <div class="box">
+                        <img src="imgs/ch/ch.png" alt="Crosshair 1" onclick="enlargeImage(this)">
+                        <div class="buttons">
+                            <a href="imgs/ch/ch.png" download="crosshair.png">
+                                <button type="button">Download</button>
+                            </a>
+                            <button type="button"
+                                onclick="navigator.clipboard.writeText(location.origin + '/imgs/ch/ch.png')">Copy
+                                Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Image Modal Overlay -->
+        <div id="img-modal" class="img-modal" onclick="closeImageModal(event)">
+            <span class="img-modal-close" onclick="closeImageModal(event)">&times;</span>
+            <img class="img-modal-content" id="img-modal-img" src="" alt="">
         </div>
-    </div>
-    <div class="crosshairs">
-        <img src="imgs/ch/ch.png" alt="Crosshair 1">
-        <div>
-            <a href="imgs/ch/ch.png" download="crosshair.png">
-            <button type="button">Download</button>
-            </a>
-            <button type="button" onclick="navigator.clipboard.writeText(location.origin + '/imgs/ch/ch.png')">Copy Link</button>
-        </div>
-    </div>
+        <script>
+            function enlargeImage(img) {
+                var modal = document.getElementById('img-modal');
+                var modalImg = document.getElementById('img-modal-img');
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                document.body.style.overflow = "hidden";
+            }
+            function closeImageModal(e) {
+                // Only close if clicking the overlay or close button, not the image itself
+                if (e.target.classList.contains('img-modal') || e.target.classList.contains('img-modal-close')) {
+                    document.getElementById('img-modal').style.display = "none";
+                    document.body.style.overflow = "";
+                }
+            }
+        </script>
+    </section>
 </body>
+
 </html>
