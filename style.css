@@ -60,7 +60,10 @@
     --color5: 255, 255, 255;  /* White for shine */
 }
 
-
+::selection {
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.18) 0%, rgba(120, 180, 255, 0.10) 100%);
+    color: #4eb3f7;
+}
 
 * {
     margin: 0;
@@ -70,20 +73,23 @@
 html {
     font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5rem;
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
     min-height: 100dvh;
-    background-image: url(/bg.jpg) !important;
     color: var(--text-clr);
     display: grid;
     grid-template-columns: auto 1fr;
     padding: 10em;
-    background-repeat: no-repeat;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    /* Combined background: image over gradient */
+    background:
+        url(/bg.jpg) no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
 }
 
 #top{
@@ -235,6 +241,14 @@ main p {
     margin-bottom: 15px;
 }
 
+.head{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
 .container {
     border: 1px solid var(--line-clr);
     border-radius: 1em;
@@ -300,10 +314,7 @@ main p {
     color: #acfa70;
 }
 
-.juice img{
-    border: #000000 1px solid;
-    border-radius: 5px;
-  }
+
 
 .box {
     flex: 1 1 220px;
@@ -347,7 +358,9 @@ main p {
 }
 
 .textures,
-.crosshairs {
+.crosshairs,
+.character,
+.maps {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -565,6 +578,27 @@ main p {
     color: #223a5e;
 }
 
+.game{
+    color: #acfa70;
+    background:radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(117, 179, 255, 0.1) 100%);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mythical {
+    color: #ffffff;
+    background: radial-gradient(circle, rgba(255, 0, 0) 0%, rgba(107, 0, 0) 100%);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.unob{
+    color: #ffffff;
+    background: radial-gradient(circle, rgb(151, 151, 151) 0%, rgb(39, 39, 39) 100%);
+    padding: 5px;
+    border-radius: 5px;
+}
+
 @media (max-width: 800px) {
     .img-modal-content {
         max-width: 98vw;
@@ -588,16 +622,6 @@ a:hover, .box a:hover {
     color: #eaf6ff;
 }
 
-/* === Frutiger Aero Enhancements === */
-
-/* Body: Enhanced Aqua Gradient Background */
-body {
-    background: linear-gradient(to bottom right, #87e0fd 0%, #53cbf1 50%, #05abe0 100%);
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Aero Bubbles */
 @keyframes bubbleFloat {
     0% { transform: translateY(100%); opacity: 0; }
     50% { opacity: 1; }

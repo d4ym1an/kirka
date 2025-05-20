@@ -6,6 +6,7 @@
     <title>daymian // kirka</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="sidebar.js" defer></script>
+    <link rel="icon" type="image/png" href="/imgs/logo.png">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
     <nav id="sidebar" class="close">
         <ul>
             <li>
-                <span class="logo"><a href="https://daymain.xyz"><img src="imgs/pfp.jpg"></a></span>
+                <span class="logo"><img src="imgs/pfp.jpg"></span>
                 <button onclick="toggleSidebar()" id="toggle-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
@@ -34,20 +35,34 @@
                     <span class="sidebarText">crosshairs</span>
                 </a>
             </li>
+            <li>
+                <a href="#character">
+                    <img src="/imgs/person_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg">
+                    <span class="sidebarText">characters</span>
+                </a>
+            </li>
+            <li>
+                <a href="#maps">
+                    <img src="/imgs/map_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
+                    <span class="sidebarText">maps</span>
+                </a>
+            </li>
         </ul>
     </nav>
     <section id="top">
         <main>
             <header>
-                <h1>my kirka stuff</h1>
+                <div class="head">
+                    <img src="/imgs/logo.png" alt="Logo" width="100" height="100">
+                    <h1>my kirka stuff</h1>
+                </div>
                 <br>
                 <h2>this is mainly for me and so that way my stuff doesnt dissapear with discords image system, along
                     side
                     with all my creations for kirka</h2>
                 <h2>feel free tho to use these items as well</h2>
             </header>
-
-            <div class="textures">
+            <div class="textures" id="textures">
                 <h1>textures</h1>
                 <div class="boxes">
                     <div class="box">
@@ -75,7 +90,7 @@
                 </div>
             </div>
             <hr>
-            <div class="crosshairs">
+            <div class="crosshairs" id="crosshairs">
                 <h1>crosshair</h1>
                 <div class="boxes">
                     <div class="box">
@@ -91,9 +106,87 @@
                     </div>
                 </div>
             </div>
-        </main>
+            <hr>
+            <div class="character" id="character">
+                <h1>character</h1>
+                <div class="boxes">
+                    <div class="box">
+                        <img src="imgs/chars/Color-render.png" alt="Color Character" width="100">
+                        <p class="mythical">Color</p>
+                        <div class="buttons">
+                            <a href="imgs/chars/Color-texture.png" download="character.png">
+                                <button type="button">Download Texture</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/chars/Janett-render.png" alt="Janett Character" width="100">
+                        <p class="mythical">Janett</p>
+                        <div class="buttons">
+                            <a href="imgs/chars/Janett-texture.png" download="character.png">
+                                <button type="button">Download Texture</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/chars/Mangle-render.png" alt="Mangle Character" width="100">
+                        <p class="unob">Mangle</p>
+                        <div class="buttons">
+                            <a href="imgs/chars/Mangle-texture.png" download="character.png">
+                                <button type="button">Download Texture</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/chars/Helizabet-render.png" alt="Helizabet Character" width="100">
+                        <p class="unob">Helizabet</p>
+                        <div class="buttons">
+                            <a href="imgs/chars/Helizabet-texture.png" download="character.png">
+                                <button type="button">Download Texture</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="maps" id="maps">
+                <h1>maps</h1>
+                <div class="boxes">
+                    <div class="box">
+                        <img src="imgs/maps/Bulwark.jpg" alt="Bulwark Map" width="300">
+                        <p class="game">POINT_Bulwark</p>
+                        <p class="game">SAD_Bulwark</p>
+                        <div class="buttons">
+                            <a href="imgs/maps/bulwarkPoint.txt" download="bulwarkPoint.txt">
+                                <button type="button">Download Map (Point)</button>
+                            </a>
+                            <a href="imgs/maps/bulwarkSnD.txt" download="bulwarkSnD.txt">
+                                <button type="button">Download Map (SnD)</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/maps/Griddy.jpg" alt="Griddy Map" width="300">
+                        <p class="game">POINT_Griddy</p>
+                        <div class="buttons">
+                            <a href="imgs/maps/Griddy.txt" download="Griddy.txt">
+                                <button type="button">Download Map</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/maps/Sigma.jpg" alt="Sigma Map" width="300">
+                        <p class="game">TKO_Sigma</p>
+                        <div class="buttons">
+                            <a href="imgs/maps/sigma.txt" download="sigma.txt">
+                                <button type="button">Download Map</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Image Modal Overlay -->
+        </main>
         <div id="img-modal" class="img-modal" onclick="closeImageModal(event)">
             <span class="img-modal-close" onclick="closeImageModal(event)">&times;</span>
             <img class="img-modal-content" id="img-modal-img" src="" alt="">
