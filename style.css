@@ -350,7 +350,7 @@ main p {
     background: linear-gradient(90deg, #0078d7 0%, #4eb3f7 100%);
     color: #eaf6ff;
     box-shadow: 0 4px 16px 0 rgba(78,179,247,0.22);
-    border: 1.5px solid #4eb3f7;
+
 }
 
 .box a {
@@ -395,35 +395,62 @@ main p {
     gap: 10px;
 }
 
+/* Limit maps boxes to 4 per row */
+.maps .boxes {
+    flex-wrap: wrap;
+    max-width: calc(4 * 320px + 3 * 10px); /* 4 boxes + 3 gaps */
+}
+
+.maps .box {
+    flex: 1 1 220px;
+    max-width: 320px;
+    min-width: 180px;
+    /* Ensure images do not overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maps .box img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 8px;
+}
+
 @media(max-width: 800px) {
     body {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
+        padding: 2em 0.5em 5em 0.5em;
     }
-
     #sidebar {
         height: 60px;
-        width: 100%;
+        width: 100vw;
+        min-width: unset;
+        max-width: unset;
         border-right: none;
         border-top: 1px solid var(--line-clr);
         padding: 0;
         position: fixed;
         top: unset;
         bottom: 0;
-        z-index: 20; /* Ensure it stays above other content */
-
+        left: 0;
+        z-index: 20;
+        border-radius: 0;
+        box-shadow: 0 -2px 16px 0 rgba(78,179,247,0.10);
         > ul {
             padding: 0;
             display: grid;
             grid-auto-columns: 60px;
             grid-auto-flow: column;
             align-items: center;
-            overflow-x: auto; /* Allow horizontal scrolling */
+            overflow-x: auto;
         }
-
         ul li {
             height: 100%;
         }
-
         ul a,
         ul .dropdown-btn {
             width: 60px;
@@ -432,33 +459,28 @@ main p {
             border-radius: 0;
             justify-content: center;
         }
-
         ul li span,
         ul li:first-child,
         .dropdown-btn svg:last-child {
             display: none;
         }
-
         ul li .sub-menu.show {
             position: fixed;
             bottom: 60px;
             left: 0;
             box-sizing: border-box;
             height: 60px;
-            width: 100%;
+            width: 100vw;
             background-color: var(--hover-clr);
             border-top: 1px solid var(--line-clr);
             display: flex;
             justify-content: center;
-
             > div {
                 overflow-x: auto;
             }
-
             li {
                 display: inline-flex;
             }
-
             a {
                 box-sizing: border-box;
                 padding: 1em;
@@ -467,55 +489,169 @@ main p {
             }
         }
     }
-
     main {
-        padding: 1em; /* Reduce padding for smaller screens */
+        padding: 1em;
     }
-
+    .head {
+        flex-direction: column;
+        gap: 1em;
+        align-items: flex-start;
+    }
     .hero {
-        font-size: 1.5em; /* Adjust font size for smaller screens */
-        padding: 1.5em; /* Reduce padding */
-        width: 90%; /* Ensure it fits within the screen */
-        border-radius: 0.5em; /* Slightly smaller rounded corners */
+        font-size: 1.2em;
+        padding: 1em;
+        width: 100%;
+        border-radius: 0.5em;
     }
-
     .hero p {
-        width: 100%; /* Allow text to span full width */
-        font-size: 1em; /* Adjust font size for readability */
+        width: 100%;
+        font-size: 1em;
     }
-
     .hero a {
-        padding: 0.8em 1.5em; /* Adjust button size */
-        font-size: 0.9em; /* Adjust font size */
+        padding: 0.8em 1.5em;
+        font-size: 0.9em;
     }
-
     .container {
         border: none;
-        padding: 0;
+        padding: 0.5em;
     }
-
-    .gradient-bg {
-        background-size: cover; /* Ensure background scales properly */
-    }
-
     .textures,
-    .crosshairs {
+    .crosshairs,
+    .maps {
         flex-direction: column;
         gap: 0;
         align-items: stretch;
     }
-
     .box {
         max-width: 100%;
         min-width: 0;
         margin: 12px 0;
     }
-
     .textures img,
     .crosshairs img {
         margin-right: 0;
         margin-bottom: 8px;
         max-width: 100%;
+    }
+    .maps .boxes {
+        max-width: 100vw;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .maps .box {
+        max-width: 100%;
+        min-width: 0;
+    }
+    .maps .box img {
+        max-width: 100%;
+    }
+    .img-modal-content {
+        max-width: 98vw;
+        max-height: 70vh;
+    }
+    .img-modal-close {
+        top: 12px;
+        right: 18px;
+        font-size: 2rem;
+        padding: 0 8px;
+    }
+}
+
+/* Mobile styles (≤450px) */
+@media (max-width: 450px) {
+    html {
+        font-size: 15px;
+    }
+    body {
+        padding: 0.5em 0.2em 4em 0.2em;
+    }
+    #top {
+        flex-direction: column;
+        padding: 0.5em 0.5em;
+        border-radius: 0 3em 2em 0;
+    }
+    #sidebar {
+        height: 48px;
+        min-width: unset;
+        max-width: unset;
+        border-radius: 0;
+        font-size: 0.95em;
+        > ul {
+            grid-auto-columns: 48px;
+        }
+        ul a,
+        ul .dropdown-btn {
+            width: 48px;
+            height: 48px;
+            font-size: 1.1em;
+        }
+        ul li .sub-menu.show {
+            height: 48px;
+        }
+    }
+    main {
+        padding: 0.5em;
+    }
+    .head {
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: flex-start;
+    }
+    .container {
+        padding: 0.5em;
+    }
+    .box {
+        padding: 8px 8px;
+        font-size: 0.98em;
+    }
+    .textures img,
+    .crosshairs img,
+    .maps .box img {
+        max-width: 100vw;
+        min-width: 0;
+        width: 100%;
+    }
+    .img-modal {
+        left: 2vw;
+        top: 2vw;
+        width: 96vw;
+        height: 96vh;
+    }
+    .img-modal-content {
+        max-width: 96vw;
+        max-height: 60vh;
+    }
+    .img-modal-close {
+        top: 6px;
+        right: 8px;
+        font-size: 1.5rem;
+        padding: 0 6px;
+    }
+    .maps .boxes {
+        gap: 4px;
+    }
+}
+
+/* Laptop styles (≤1200px) */
+@media (max-width: 1200px) {
+    body {
+        padding: 4em 1em 2em 1em;
+    }
+    #sidebar {
+        width: 180px;
+        font-size: 1em;
+    }
+    main {
+        padding: 1.5em;
+    }
+    .container {
+        padding: 1.5em;
+    }
+    .box {
+        max-width: 90vw;
+    }
+    .maps .boxes {
+        max-width: 100vw;
     }
 }
 
@@ -666,12 +802,11 @@ button, .hero a {
     padding: 12px 24px;
     font-weight: bold;
     text-shadow: 0 1px 2px #fff;
-    transition: transform 0.2s ease, background 0.3s;
+    transition: transform 0.2s ease, ease-in-out 0.3s;
 }
 
 button:hover, .hero a:hover {
     background: linear-gradient(to left, #4eb3f7, #bdf3ff);
-    transform: scale(1.05);
 }
 
 /* Image Enhancements */
