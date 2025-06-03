@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Competitive Record - Kirka</title>
+</head>
+
+<body>
+    <main class="competitive-record">
+        <section class="record-header">
+            <h1>COMPETITIVE RECORD</h1>
+            <button class="close-btn"><img src="imgs/close.png" alt="Close" /></button>
+        </section>
+        <h2>FILTER BY:</h2>
+        <section class="game-modes">
+            <div class="mode-item">
+                <input type="checkbox" id="mode-1v1" class="checkboxMode" checked />
+                <label for="mode-1v1">1v1</label>
+            </div>
+            <div class="mode-item">
+                <input type="checkbox" id="mode-point3v3" class="checkboxMode" checked />
+                <label for="mode-point3v3">Point3v3</label>
+            </div>
+            <div class="mode-item">
+                <input type="checkbox" id="mode-snd" class="checkboxMode" checked />
+                <label for="mode-snd">S&D</label>
+            </div>
+        </section>
+        <section class="match-history">
+            <div class="match-item" data-mode="1v1" style="background-image: url('imgs/ceres.png');">
+                <span class="map-name">CERES</span>
+                <span class="result loss">LOSS -45KLO</span>
+            </div>
+            <div class="match-item" data-mode="point3v3" style="background-image: url('imgs/poussiere.png');">
+                <span class="map-name">POUSSIERE</span>
+                <span class="result win">WIN +10KLO</span>
+            </div>
+            <div class="match-item" data-mode="snd" style="background-image: url('imgs/ceres.png');">
+                <span class="map-name">CERES</span>
+                <span class="result loss">LOSS -45KLO</span>
+            </div>
+            <div class="match-item" data-mode="1v1" style="background-image: url('imgs/poussiere.png');">
+                <span class="map-name">POUSSIERE</span>
+                <span class="result win">WIN +10KLO</span>
+            </div>
+            <div class="match-item" data-mode="point3v3" style="background-image: url('imgs/ceres.png');">
+                <span class="map-name">CERES</span>
+                <span class="result loss">LOSS -45KLO</span>
+            </div>
+            <div class="match-item" data-mode="snd" style="background-image: url('imgs/poussiere.png');">
+                <span class="map-name">POUSSIERE</span>
+                <span class="result win">WIN +10KLO</span>
+            </div>
+        </section>
+        <section class="stats-grid">
+            <div class="stat-item">
+                <h3>1v1</h3>
+                <span class="stat-value">3080KLO</span>
+            </div>
+            <div class="stat-item">
+                <h3>S&D</h3>
+                <span class="stat-value">1337KLO</span>
+            </div>
+            <div class="stat-item">
+                <h3>Point3v3</h3>
+                <span class="stat-value">510KLO</span>
+            </div>
+            <div class="stat-item">
+                <h3>All Time: S&D</h3>
+                <span class="stat-value">6000KLO</span>
+            </div>
+            <div class="stat-item">
+                <h3>Wins</h3>
+                <span class="stat-value">1000</span>
+            </div>
+            <div class="stat-item">
+                <h3>KPG</h3>
+                <span class="stat-value">20.12</span>
+            </div>
+            <div class="stat-item">
+                <h3>KDR</h3>
+                <span class="stat-value">2.1</span>
+            </div>
+        </section>
+        <section class="awards">
+            <h3>Awards</h3>
+            <ul>
+                <li>
+                    <img src="award-icon.png" alt="Award" />
+                    <span>2v2 RPL 1st PLACE</span>
+                </li>
+                <li>
+                    <img src="award-icon.png" alt="Award" />
+                    <span>SEASON 1 FIRST</span>
+                </li>
+                <li>
+                    <img src="award-icon.png" alt="Award" />
+                    <span>SEASON 3 TOP 5</span>
+                </li>
+            </ul>
+        </section>
+        <section class="warnings">
+            <h3>Warnings</h3>
+            <div class="warning-indicators">
+                <span class="warning red">X</span>
+                <span class="warning green">X</span>
+                <span class="warning green">X</span>
+            </div>
+        </section>
+        <section class="most-used">
+            <h3>Most Used</h3>
+            <img src="weapon-icon.png" alt="Most used weapon" class="weapon-icon" />
+        </section>
+    </main>
+    <script>
+        // Filtration system for match history
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('.game-modes input[type="checkbox"]');
+            const matchItems = document.querySelectorAll('.match-history .match-item');
+
+            function filterMatches() {
+                // Collect enabled modes
+                const enabledModes = Array.from(checkboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => {
+                        // id is like "mode-1v1", we want "1v1"
+                        return cb.id.replace('mode-', '');
+                    });
+
+                matchItems.forEach(item => {
+                    const mode = item.getAttribute('data-mode');
+                    if (enabledModes.includes(mode)) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', filterMatches);
+            });
+
+            // Initial filter on load
+            filterMatches();
+        });
+    </script>
+</body>
+
+</html>
