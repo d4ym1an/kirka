@@ -18,8 +18,8 @@
             <li>
                 <span class="logo"><img src="imgs/pfp.jpg"></span>
                 <button onclick="toggleSidebar()" id="toggle-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="http://www.w3.org/2000/svg 0 -960 960 960" width="24px"
-                        fill="#e8eaed">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="http://www.w3.org/2000/svg 0 -960 960 960" width="24px" fill="#e8eaed">
                         <path
                             d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
                     </svg>
@@ -56,13 +56,12 @@
             <header>
                 <div class="head">
                     <img src="/imgs/logo.png" alt="Logo" width="100" height="100">
-                    <h1>my kirka stuff</h1>
+                    <div class="header-text">
+                        <h1>my kirka stuff</h1>
+                        <h2>A collection of custom textures, crosshairs, characters, and maps</h2>
+                        <p>Made for personal use and shared for the community</p>
+                    </div>
                 </div>
-                <br>
-                <h2>this is mainly for me and so that way my stuff doesnt dissapear with discords image system, along
-                    side
-                    with all my creations for kirka</h2>
-                <h2>feel free tho to use these items as well</h2>
             </header>
             <div class="textures" id="textures">
                 <h1>textures</h1>
@@ -112,16 +111,17 @@
             <div class="character" id="character">
                 <h1>character</h1>
                 <!-- Rarity legend -->
-                <div style="margin-bottom: 1em;">
-                    <strong>rarity legend:</strong>
-                    <span class="paranormal" style="margin-left: 1em;">paranormal</span>
-                    <span class="mythical" style="margin-left: 1em;">mythical</span>
-                    <span class="legendary" style="margin-left: 1em;">legendary</span>
-                    <span class="epic" style="margin-left: 1em;">epic</span>
-                    <span class="rare" style="margin-left: 1em;">rare</span>
-                    <span class="uncommon" style="margin-left: 1em;">uncommon</span>
-                    <span class="unob" style="margin-left: 1em;">unobtainable</span>
-                    
+                <div class="rarity-legend">
+                    <strong>Rarity Legend:</strong>
+                    <div class="legend-items">
+                        <span class="paranormal">Paranormal</span>
+                        <span class="mythical">Mythical</span>
+                        <span class="legendary">Legendary</span>
+                        <span class="epic">Epic</span>
+                        <span class="rare">Rare</span>
+                        <span class="uncommon">Uncommon</span>
+                        <span class="unob">Unobtainable</span>
+                    </div>
                 </div>
                 <div class="boxes">
                     <div class="box">
@@ -129,7 +129,8 @@
                         <p class="mythical">
                             Color
                             <span class="relative inline-flex ml-2 align-middle">
-                                <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                <span
+                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                             </span>
                         </p>
@@ -144,7 +145,8 @@
                         <p class="mythical">
                             Janett
                             <span class="relative inline-flex ml-2 align-middle">
-                                <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                <span
+                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                             </span>
                         </p>
@@ -155,11 +157,44 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img src="imgs/chars/Mangle-render.png" alt="Mangle Character" width="100">
-                        <p class="unob">
-                            Mangle
+                        <img src="imgs/chars/Franken-James-render.png" alt="Franken-James Character" width="100">
+                        <p class="mythical">
+                            Franken-James
                             <span class="relative inline-flex ml-2 align-middle">
-                                <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                <span
+                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                            </span>
+                        </p>
+                        <div class="buttons">
+                            <a href="imgs/chars/Franken-James-texture.png" download="character.png">
+                                <button type="button">Download Texture</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/chars/XRay-James-render.png" alt="XRay-James Character" width="100">
+                        <p class="mythical">
+                            XRay-James
+                            <span class="relative inline-flex ml-2 align-middle">
+                                <span
+                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                            </span>
+                        </p>
+                        <div class="buttons">
+                            <a href="imgs/chars/XRay-James-texture.png" download="character.png">
+                                <button type="button">Download Texture</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="imgs/chars/Mangle-render.png" alt="Mangle Character" width="100">
+                        <p class="mythical">
+                            Mangle (1/1)
+                            <span class="relative inline-flex ml-2 align-middle">
+                                <span
+                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                             </span>
                         </p>
@@ -174,7 +209,8 @@
                         <p class="unob">
                             Helizabet
                             <span class="relative inline-flex ml-2 align-middle">
-                                <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                <span
+                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                             </span>
                         </p>
@@ -194,33 +230,14 @@
                     <div style="width:100%;">
                         <h2 style="margin-bottom: 0.5em;">in-game maps</h2>
                         <div class="boxes" style="margin-bottom: 1.5em;">
-                            <div class="box">
-                                <img src="imgs/maps/Bulwark.jpg" alt="Bulwark Map" width="300">
-                                <p class="game">
-                                    POINT_Bulwark
-                                    <span class="relative inline-flex ml-2 align-middle">
-                                        <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                                    </span>
-                                </p>
-                                <p class="game">
-                                    SAD_Bulwark
-                                </p>
-                                <div class="buttons">
-                                    <a href="imgs/maps/bulwarkPoint.txt" download="bulwarkPoint.txt">
-                                        <button type="button">Download Map (Point)</button>
-                                    </a>
-                                    <a href="imgs/maps/bulwarkSnD.txt" download="bulwarkSnD.txt">
-                                        <button type="button">Download Map (SnD)</button>
-                                    </a>
-                                </div>
-                            </div>
+
                             <div class="box">
                                 <img src="imgs/maps/Grass.jpg" alt="Grass Map" width="300">
                                 <p class="game">
                                     TKO_Grass
                                     <span class="relative inline-flex ml-2 align-middle">
-                                        <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                        <span
+                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
                                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                                     </span>
                                 </p>
@@ -230,11 +247,72 @@
                                     </a>
                                 </div>
                             </div>
+                            <div class="box">
+                                <img src="imgs/maps/Sk8.jpg" alt="Sk8 Map" width="300">
+                                <p class="game">TKO_Sk8
+                                    <span class="relative inline-flex ml-2 align-middle">
+                                        <span
+                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                                    </span>
+                                </p>
+                                <div class="buttons">
+                                    <a href="imgs/maps/Sk8.txt" download="Sk8.txt">
+                                        <button type="button">Download Map</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <img src="imgs/maps/Base.jpg" alt="Base Map" width="300">
+                                <p class="game">TDM_Base/POINT_Base
+                                    <span class="relative inline-flex ml-2 align-middle">
+                                        <span
+                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                                    </span>
+                                </p>
+                                <div class="buttons">
+                                    <a href="imgs/maps/Base.txt" download="Base.txt">
+                                        <button type="button">Download Map</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <img src="imgs/maps/Vesta.jpg" alt="Vesta Map" width="300">
+                                <p class="game">DM_Vesta
+                                    <span class="relative inline-flex ml-2 align-middle">
+                                        <span
+                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
+                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                                    </span>
+                                </p>
+                                <div class="buttons">
+                                    <a href="imgs/maps/Vesta.txt" download="Vesta.txt">
+                                        <button type="button">Download Map</button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                     </div>
                     <!-- End in-game maps section -->
-
+                    <div class="box">
+                        <img src="imgs/maps/Bulwark.jpg" alt="Bulwark Map" width="300">
+                        <p class="game">
+                            POINT_Bulwark
+                        </p>
+                        <p class="game">
+                            SAD_Bulwark
+                        </p>
+                        <div class="buttons">
+                            <a href="imgs/maps/bulwarkPoint.txt" download="bulwarkPoint.txt">
+                                <button type="button">Download Map (Point)</button>
+                            </a>
+                            <a href="imgs/maps/bulwarkSnD.txt" download="bulwarkSnD.txt">
+                                <button type="button">Download Map (SnD)</button>
+                            </a>
+                        </div>
+                    </div>
                     <div class="box">
                         <img src="imgs/maps/Griddy.jpg" alt="Griddy Map" width="300">
                         <p class="game">POINT_Griddy</p>
@@ -271,6 +349,7 @@
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
