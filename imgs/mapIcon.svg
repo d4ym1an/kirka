@@ -1,0 +1,25 @@
+<svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+
+  <!-- Cube -->
+  <g fill="#e6e6e6" stroke="#3b4975" stroke-width="2">
+    <!-- Top -->
+    <polygon points="60,20 40,30 60,40 80,30"></polygon>
+    <!-- Left -->
+    <polygon points="40,30 40,55 60,65 60,40"></polygon>
+    <!-- Right -->
+    <polygon points="80,30 80,55 60,65 60,40"></polygon>
+  </g>
+
+  <!-- Arrows -->
+  <g fill="#e6e6e6" stroke="#e6e6e6" stroke-width="2">
+    <!-- Top arrow -->
+    <path d="M60 18 L60 8 M55 13 L60 8 L65 13" stroke-linecap="round" fill="none"></path>
+
+    <!-- Left arrow -->
+    <path d="M38 55 L25 60 M30 55 L25 60 L32 62" stroke-linecap="round" fill="none"></path>
+
+    <!-- Right arrow -->
+    <path d="M82 55 L95 60 M90 55 L95 60 L88 62" stroke-linecap="round" fill="none"></path>
+  </g>
+</svg>

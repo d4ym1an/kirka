@@ -3,377 +3,662 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>daymian // kirka</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="sidebar.js" defer></script>
-    <link rel="icon" type="image/png" href="/imgs/logo.png">
-    <!-- Tailwind CSS CDN for ping effect -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="kirka-ui.css">
+    <link rel="icon" href="http://daymian.xyz/Icons/globe.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 16px;
+        }
+
+        @media (max-width: 1600px) {
+            body {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 1440px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            body {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            body {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 9px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <nav id="sidebar" class="close">
-        <ul>
-            <li>
-                <span class="logo"><img src="imgs/pfp.jpg"></span>
-                <button onclick="toggleSidebar()" id="toggle-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                        viewBox="http://www.w3.org/2000/svg 0 -960 960 960" width="24px" fill="#e8eaed">
+    <!-- Full-screen game background -->
+    <div class="game-bg">
+        <div class="game-bg__pattern"></div>
+        <div class="game-bg__radial"></div>
+    </div>
+
+    <!-- UI layer over the background -->
+    <div class="interface text-2">
+
+        <!-- Left sidebar nav -->
+        <div class="left-icons">
+            <a href="https://daymian.xyz/" target="_blank" style="text-decoration: none;"
+                class="icon-btn text-1 active">
+                <div>
+                    <div class="wrapper">
+                        <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                        <div class="text-icon">HOME</div>
+                    </div>
+                </div>
+            </a>
+            <div class="icon-btn text-1" data-modal="characters-modal">
+                <div class="wrapper">
+                    <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
                         <path
-                            d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z" />
                     </svg>
-                </button>
-            </li>
-            <li>
-                <a href="#textures">
-                    <img src="/imgs/material-symbols_brush-outline.svg">
-                    <span class="ml-2 sidebarText">textures</span>
-                </a>
-            </li>
-            <li>
-                <a href="#crosshairs">
-                    <img src="/imgs/lucide-lab_crosshair-plus.svg">
-                    <span class="ml-2 sidebarText">crosshairs</span>
-                </a>
-            </li>
-            <li>
-                <a href="#character">
-                    <img src="/imgs/person_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg">
-                    <span class="ml-2 sidebarText">characters</span>
-                </a>
-            </li>
-            <li>
-                <a href="#maps">
-                    <img src="/imgs/map_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
-                    <span class="ml-2 sidebarText">maps</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <section id="top">
-        <main>
-            <header>
-                <div class="head">
-                    <img src="/imgs/logo.png" alt="Logo" width="100" height="100">
-                    <div class="header-text">
-                        <h1>my kirka stuff</h1>
-                        <h2>A collection of custom textures, crosshairs, characters, and maps</h2>
-                        <p>Made for personal use and shared for the community</p>
-                    </div>
-                </div>
-            </header>
-            <div class="textures" id="textures">
-                <h1>textures</h1>
-                <div class="boxes">
-                    <div class="box">
-                        <img src="imgs/txt/txt.png" alt="Texture 1">
-                        <div class="buttons">
-                            <a href="imgs/txt/txt.png" download="texture.png">
-                                <button type="button">Download</button>
-                            </a>
-                            <button type="button"
-                                onclick="navigator.clipboard.writeText(location.origin + '/imgs/txt/txt.png')">Copy
-                                Link</button>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/txt/modified-basic.png" alt="Texture 2">
-                        <div class="buttons">
-                            <a href="imgs/txt/modified-basic.png" download="modified-basic.png">
-                                <button type="button">Download</button>
-                            </a>
-                            <button type="button"
-                                onclick="navigator.clipboard.writeText(location.origin + '/imgs/txt/modified-basic.png')">Copy
-                                Link</button>
-                        </div>
-                    </div>
+                    <div class="text-icon">CHARACTERS</div>
                 </div>
             </div>
-            <hr>
-            <div class="crosshairs" id="crosshairs">
-                <h1>crosshair</h1>
-                <div class="boxes">
-                    <div class="box">
-                        <img src="imgs/ch/ch.png" alt="Crosshair 1">
-                        <div class="buttons">
-                            <a href="imgs/ch/ch.png" download="crosshair.png">
-                                <button type="button">Download</button>
-                            </a>
-                            <button type="button"
-                                onclick="navigator.clipboard.writeText(location.origin + '/imgs/ch/ch.png')">Copy
-                                Link</button>
-                        </div>
-                    </div>
+            <div class="icon-btn text-1" data-modal="maps-modal">
+                <div class="wrapper">
+                    <img src="/imgs/mapIcon.svg" alt="Maps Icon" class="icon" style="width: 100px; height: 100px;">
+                    <div class="text-icon">MAPS</div>
                 </div>
             </div>
-            <hr>
-            <div class="character" id="character">
-                <h1>character</h1>
-                <div class="rarity-legend">
-                    <strong>Rarity Legend:</strong>
-                    <div class="legend-items">
-                        <span class="paranormal">Paranormal</span>
-                        <span class="mythical">Mythical</span>
-                        <span class="legendary">Legendary</span>
-                        <span class="epic">Epic</span>
-                        <span class="rare">Rare</span>
-                        <span class="uncommon">Uncommon</span>
-                        <span class="unob">Unobtainable</span>
-                    </div>
-                </div>
-                <div class="boxes">
-                    <div class="box">
-                        <img src="imgs/chars/Color-render.png" alt="Color Character" width="100">
-                        <p class="mythical">
-                            Color
-                            <span class="relative inline-flex ml-2 align-middle">
-                                <span
-                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/chars/Color-texture.png" download="character.png">
-                                <button type="button">Download Texture</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/chars/Janett-render.png" alt="Janett Character" width="100">
-                        <p class="mythical">
-                            Janett
-                            <span class="relative inline-flex ml-2 align-middle">
-                                <span
-                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/chars/Janett-texture.png" download="character.png">
-                                <button type="button">Download Texture</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/chars/Franken-James-render.png" alt="Franken-James Character" width="100">
-                        <p class="mythical">
-                            Franken-James
-                            <span class="relative inline-flex ml-2 align-middle">
-                                <span
-                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/chars/Franken-James-texture.png" download="character.png">
-                                <button type="button">Download Texture</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/chars/XRay-James-render.png" alt="XRay-James Character" width="100">
-                        <p class="mythical">
-                            XRay-James
-                            <span class="relative inline-flex ml-2 align-middle">
-                                <span
-                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/chars/XRay-James-texture.png" download="character.png">
-                                <button type="button">Download Texture</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/chars/Mangle-render.png" alt="Mangle Character" width="100">
-                        <p class="mythical">
-                            Mangle (1/1)
-                            <span class="relative inline-flex ml-2 align-middle">
-                                <span
-                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/chars/Mangle-texture.png" download="character.png">
-                                <button type="button">Download Texture</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/chars/Helizabet-render.png" alt="Helizabet Character" width="100">
-                        <p class="unob">
-                            Helizabet
-                            <span class="relative inline-flex ml-2 align-middle">
-                                <span
-                                    class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/chars/Helizabet-texture.png" download="character.png">
-                                <button type="button">Download Texture</button>
-                            </a>
-                        </div>
-                    </div>
+            <div class="icon-btn text-1" data-modal="renders-modal">
+                <div class="wrapper">
+                    <div class="text-icon">RENDERS</div>
                 </div>
             </div>
-            <hr>
-            <div class="maps" id="maps">
-                <h1>maps</h1>
-                <div class="maps-section">
-                    <!-- In-game maps section -->
-                    <div class="maps-category">
-                        <h2>in-game maps</h2>
-                        <div class="boxes">
-                            <div class="box">
-                                <img src="imgs/maps/Grass.jpg" alt="Grass Map" width="300">
-                                <p class="game">
-                                    TKO_Grass
-                                    <span class="relative inline-flex ml-2 align-middle">
-                                        <span
-                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                                    </span>
-                                </p>
-                                <div class="buttons">
-                                    <a href="imgs/maps/Grass.txt" download="Grass.txt">
-                                        <button type="button">Download Map</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="imgs/maps/Sk8.jpg" alt="Sk8 Map" width="300">
-                                <p class="game">TKO_Sk8
-                                    <span class="relative inline-flex ml-2 align-middle">
-                                        <span
-                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                                    </span>
-                                </p>
-                                <div class="buttons">
-                                    <a href="imgs/maps/Sk8.txt" download="Sk8.txt">
-                                        <button type="button">Download Map</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="imgs/maps/Base.jpg" alt="Base Map" width="300">
-                                <p class="game">TDM_Base/POINT_Base
-                                    <span class="relative inline-flex ml-2 align-middle">
-                                        <span
-                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                                    </span>
-                                </p>
-                                <div class="buttons">
-                                    <a href="imgs/maps/Base.txt" download="Base.txt">
-                                        <button type="button">Download Map</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="imgs/maps/Vesta.jpg" alt="Vesta Map" width="300">
-                                <p class="game">DM_Vesta
-                                    <span class="relative inline-flex ml-2 align-middle">
-                                        <span
-                                            class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
-                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                                    </span>
-                                </p>
-                                <div class="buttons">
-                                    <a href="imgs/maps/Vesta.txt" download="Vesta.txt">
-                                        <button type="button">Download Map</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <!-- End in-game maps section -->
-                    <div class="box">
-                        <img src="imgs/maps/Bulwark.jpg" alt="Bulwark Map" width="300">
-                        <p class="game">
-                            POINT_Bulwark
-                        </p>
-                        <p class="game">
-                            SAD_Bulwark
-                        </p>
-                        <div class="buttons">
-                            <a href="imgs/maps/bulwarkPoint.txt" download="bulwarkPoint.txt">
-                                <button type="button">Download Map (Point)</button>
-                            </a>
-                            <a href="imgs/maps/bulwarkSnD.txt" download="bulwarkSnD.txt">
-                                <button type="button">Download Map (SnD)</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/maps/Griddy.jpg" alt="Griddy Map" width="300">
-                        <p class="game">POINT_Griddy</p>
-                        <div class="buttons">
-                            <a href="imgs/maps/Griddy.txt" download="Griddy.txt">
-                                <button type="button">Download Map</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/maps/fightclub.jpg" alt="Fight Club Map" width="300">
-                        <p class="game">TKO_FightClub (Reskined Grass)</p>
-                        <div class="buttons">
-                            <a href="imgs/maps/fightclub.txt" download="fightclub.txt">
-                                <button type="button">Download Map</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/maps/Treeline.jpg" alt="Treeline Map" width="300">
-                        <p class="game">1v1_Treeline</p>
-                        <div class="buttons">
-                            <a href="imgs/maps/Treeline.txt" download="Treeline.txt">
-                                <button type="button">Download Map</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="imgs/maps/process_mid.jpg" alt="CP Process Mid Map" width="300">
-                        <p class="game">POINT_Processmid</p>
-                        <div class="buttons">
-                            <a href="imgs/maps/cp_process_mid.txt" download="cp_process_mid.txt">
-                                <button type="button">Download Map</button>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </main>
-        <div id="img-modal" class="img-modal" onclick="closeImageModal(event)">
-            <span class="img-modal-close" onclick="closeImageModal(event)">&times;</span>
-            <img class="img-modal-content" id="img-modal-img" src="" alt="">
         </div>
-        <script>
-            function enlargeImage(img) {
-                var modal = document.getElementById('img-modal');
-                var modalImg = document.getElementById('img-modal-img');
-                modal.style.display = "flex";
-                modalImg.src = img.src;
-                modalImg.alt = img.alt;
-                document.body.style.overflow = "hidden";
+
+        <!-- Top-left user panel -->
+        <div class="left-interface">
+            <div class="auth-user">
+                <div class="profile">
+                    <div class="card-cont avatar-info" hover="">
+                        <div class="avatar" id="avatar" style="width:64px;height:64px; border: 4px solid #202639;">
+                        </div>
+                        <div class="username" id="username">daymian</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center content area with buttons and cards -->
+        <div class="team-section"
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10;">
+
+            <h1 style="font-family: 'Rowdies', sans-serif; font-size: 3rem; margin-bottom: 2rem; color: #fff;">MY KIRKA
+                WORK (SITE WIP)</h1>
+
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+            </div>
+
+            <!-- Panel Examples -->
+            <div style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://discord.gg/NxQQDBUR6N" target="_blank" style="text-decoration: none;">
+                    <div class="card-cont" hover=""
+                        style="padding: 1rem; min-width: 200px; display: flex; gap: 1rem; align-items: center;">
+                        <img src="/imgs/flow2.png" alt="FLOW CLAN"
+                            style="width: auto; height: 48px; flex-shrink: 0; border-radius: 4px;">
+                        <div>
+                            <div style="color: var(--gold-1); font-weight: bold; margin-bottom: 0.5rem;">FLOW CLAN</div>
+                            <div style="color: #fff; font-size: 0.9rem;">KIRKA COMPETITIVE CLAN</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://drift.daymian.xyz" target="_blank" style="text-decoration: none;">
+                    <div class="card-cont" hover=""
+                        style="padding: 1rem; min-width: 200px; display: flex; gap: 1rem; align-items: center;">
+                        <img src="/imgs/drift.jpg" alt="DRIFT COMP"
+                            style="width: auto; height: 47px; flex-shrink: 0; border-radius: 4px;">
+                        <div>
+                            <div style="color: var(--gold-1); font-weight: bold; margin-bottom: 0.5rem;">DRIFT COMP
+                            </div>
+                            <div style="color: #fff; font-size: 0.9rem;">KIRKA TOURNAMENT SERVER</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="play">
+            <div class="play-content">
+                <a href="https://kirka.io/profile/MEXICO" target="_blank" style="text-decoration: none;">
+                    <div class="play-content-up">
+                        <button class="button create-btn rectangle"
+                            style="background-color: var(--blue-4); --hover-color: var(--blue-5);">
+                            <div class="triangle"></div>
+                            <div class="text">PROFILE</div>
+                            <div class="WwnNWmwM">
+                                <div class="border-top border"></div>
+                                <div class="border-bottom border"></div>
+                            </div>
+                        </button>
+                    </div>
+                </a>
+                <button class="button play-btn shiny"
+                    style="background-color: var(--gold-1); --hover-color: var(--gold-2); --top: var(--gold-2); --bottom: var(--gold-3);">
+                    <div class="triangle"></div>
+                    <div class="text">PROJECTS</div>
+                    <div class="WwnNWmwM">
+                        <div class="border-top border"></div>
+                        <div class="border-bottom border"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CHARACTERS MODAL -->
+    <div class="vm--overlay modal-overlay" id="characters-overlay"></div>
+    <div class="vm--modal modal-popup" id="characters-modal"
+        style="min-width: 80rem; max-width: 95vw; flex-direction: column;">
+        <div class="top-bar">
+            <div class="home"></div>
+            <div class="name-page">INVENTORY</div>
+            <div class="close modal-close"></div>
+        </div>
+        <div style="display: flex; height: calc(100% - 2.5rem); background: var(--panel-3);">
+            <!-- Left side - Character preview -->
+            <div
+                style="flex: 0 0 35%; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid var(--panel-6);">
+                <div style="text-align: center;">
+                    <div style="font-size: 0.9rem; color: var(--gold-1); margin-bottom: 1rem;" id="char-username">
+                        daymian</div>
+                    <img id="char-preview" src="/imgs/chars/Color-render.png" alt="Character"
+                        style="max-width: 300px; max-height: 400px; object-fit: cover; object-position: top center;">
+                    <div style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--gold-1); font-weight: bold;"
+                        id="char-preview-name">Color</div>
+                </div>
+            </div>
+
+            <!-- Right side - Character grid -->
+            <div style="flex: 1; padding: 2rem; overflow-y: auto;">
+                <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid var(--panel-6); padding-bottom: 1rem;">
+                    <div id="tab-in-game" onclick="switchCharacterTab('in-game')" style="color: var(--gold-1); font-weight: bold; cursor: pointer; border-bottom: 3px solid var(--gold-1); padding-bottom: 0.5rem;">
+                        IN-GAME CHARACTERS
+                    </div>
+                    <div id="tab-made" onclick="switchCharacterTab('made')" style="color: var(--gray-2); cursor: pointer;">
+                        CHARACTERS MADE
+                    </div>
+
+                </div>
+
+                <div id="in-game-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem;">
+                    <!-- Ripped Santa Character -->
+                    <div class="character-card"
+                        onclick="selectCharacter('Ripped Santa', '/imgs/chars/Ripped_Santa-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Ripped_Santa-render.png" alt="Ripped Santa">
+                        </div>
+                        <div class="character-label paranormal">Ripped Santa</div>
+                    </div>
+                    <!-- Color Character -->
+                    <div class="character-card" onclick="selectCharacter('Color', '/imgs/chars/Color-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Color-render.png" alt="Color">
+                        </div>
+                        <div class="character-label mythical">Color</div>
+                    </div>
+                    <!-- Janett Character -->
+                    <div class="character-card" onclick="selectCharacter('Janett', '/imgs/chars/Janett-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Janett-render.png" alt="Janett">
+                        </div>
+                        <div class="character-label mythical">Janett</div>
+                    </div>
+                    <!-- Mangle Character -->
+                    <div class="character-card" onclick="selectCharacter('Mangle', '/imgs/chars/Mangle-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Mangle-render.png" alt="Mangle">
+                        </div>
+                        <div class="character-label mythical">Mangle</div>
+                    </div>
+                    <!-- XRay-James Character -->
+                    <div class="character-card"
+                        onclick="selectCharacter('XRay-James', '/imgs/chars/XRay-James-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/XRay-James-render.png" alt="XRay-James">
+                        </div>
+                        <div class="character-label mythical">XRay-James</div>
+                    </div>
+                    <!-- IMGERROR Character -->
+                    <div class="character-card"
+                        onclick="selectCharacter('IMGERROR', '/imgs/chars/IMGERROR-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/IMGERROR-render.png" alt="IMGERROR">
+                        </div>
+                        <div class="character-label mythical">IMGERROR</div>
+                    </div>
+                    <!-- Franken-James Character -->
+                    <div class="character-card"
+                        onclick="selectCharacter('Franken-James', '/imgs/chars/Franken-James-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Franken-James-render.png" alt="Franken-James">
+                        </div>
+                        <div class="character-label epic" style="font-size: 0.76rem;">Franken-James</div>
+                    </div>
+                    <!-- Helizabet Character -->
+                    <div class="character-card"
+                        onclick="selectCharacter('Helizabet', '/imgs/chars/Helizabet-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Helizabet-render.png" alt="Helizabet">
+                        </div>
+                        <div class="character-label unobtainable">Helizabet</div>
+                    </div>
+                    <div class="character-card"
+                        onclick="selectCharacter('Flowchie (BUGGED)', 'https://kirka.lukeskywalk.com/static/renders/Character/Flowchie-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="https://kirka.lukeskywalk.com/static/renders/Character/Flowchie-render.png" alt="Flowchie">
+                        </div>
+                        <div class="character-label unobtainable">Flowchie (BUGGED)</div>
+                    </div>
+                </div>
+
+                <div id="made-grid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem; grid-auto-rows: 1fr;">
+                    <!-- Custom Character 1 -->
+                    <div class="character-card" onclick="selectCharacter('Custom Skin 1', '/imgs/chars/Color-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Color-render.png" alt="Custom Skin 1">
+                        </div>
+                        <div class="character-label epic">Custom Skin 1</div>
+                    </div>
+                    <!-- Custom Character 2 -->
+                    <div class="character-card" onclick="selectCharacter('Custom Skin 2', '/imgs/chars/Janett-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Janett-render.png" alt="Custom Skin 2">
+                        </div>
+                        <div class="character-label mythical">Custom Skin 2</div>
+                    </div>
+                    <!-- Custom Character 3 -->
+                    <div class="character-card" onclick="selectCharacter('Custom Skin 3', '/imgs/chars/Mangle-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Mangle-render.png" alt="Custom Skin 3">
+                        </div>
+                        <div class="character-label epic">Custom Skin 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAPS MODAL -->
+    <div class="vm--overlay modal-overlay" id="maps-overlay"></div>
+    <div class="vm--modal modal-popup" id="maps-modal" style="min-width: 70rem; max-width: 95vw;">
+        <div class="top-bar">
+            <div class="home"></div>
+            <div class="name-page">MAPS</div>
+            <div class="close modal-close"></div>
+        </div>
+        <div class="content"
+            style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <!-- Grass Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Grass', 'Grass.jpg', 'grass.txt')">
+                <img src="/imgs/maps/Grass.jpg" alt="Grass">
+                <div class="map-badge">LIVE</div>
+                <div class="map-overlay">
+                    <span class="map-name">Grass - TKO</span>
+                </div>
+            </div>
+            <!-- Fightclub Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Fightclub', 'fightclub.jpg', 'fightclub.txt')">
+                <img src="/imgs/maps/fightclub.jpg" alt="Fightclub">
+                <div class="map-overlay">
+                    <span class="map-name">Fightclub - TKO</span>
+                </div>
+            </div>
+            <!-- Griddy Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Griddy', 'Griddy.jpg', 'Griddy.txt')">
+                <img src="/imgs/maps/Griddy.jpg" alt="Griddy">
+                <div class="map-overlay">
+                    <span class="map-name">Griddy - POINT</span>
+                </div>
+            </div>
+            <!-- Process Mid Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Process Mid', 'process_mid.jpg', 'cp_process_mid.txt')">
+                <img src="/imgs/maps/process_mid.jpg" alt="Process Mid">
+                <div class="map-overlay">
+                    <span class="map-name">Process Mid - 1V1</span>
+                </div>
+            </div>
+            <!-- Base Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Base', 'Base.jpg', 'Base.txt')">
+                <img src="/imgs/maps/Base.jpg" alt="Base">
+                <div class="map-info-bubble">Worked with: sabe</div>
+                <div class="map-overlay">
+                    <span class="map-name">Base - DM / TDM / POINT</span>
+                </div>
+            </div>
+            <!-- Treeline Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Treeline', 'Treeline.jpg', 'Treeline.txt')">
+                <img src="/imgs/maps/Treeline.jpg" alt="Treeline">
+                <div class="map-info-bubble">Worked with: sabe</div>
+                <div class="map-overlay">
+                    <span class="map-name">Treeline - 1V1</span>
+                </div>
+            </div>
+            <!-- SK8 Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('SK8', 'Sk8.jpg', 'sk8.txt')">
+                <img src="/imgs/maps/Sk8.jpg" alt="SK8">
+                <div class="map-info-bubble">Worked with: sabe</div>
+                <div class="map-overlay">
+                    <span class="map-name">SK8 - TKO</span>
+                </div>
+            </div>
+            <!-- Vesta Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Vesta', 'Vesta.jpg', 'Vesta.txt')">
+                <img src="/imgs/maps/Vesta.jpg" alt="Vesta">
+                <div class="map-info-bubble">Worked with: sabe</div>
+                <div class="map-overlay">
+                    <span class="map-name">Vesta - DM / TDM / POINT</span>
+                </div>
+            </div>
+
+            <!-- Bulwark Map -->
+            <div class="map-thumbnail" onclick="showMapDetails('Bulwark', 'Bulwark.jpg', 'bulwarkPoint.txt')">
+                <img src="/imgs/maps/Bulwark.jpg" alt="Bulwark">
+                <div class="map-info-bubble">Worked with: sabe</div>
+                <div class="map-overlay">
+                    <span class="map-name">Bulwark - SAD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAP DETAILS MODAL -->
+    <div class="vm--overlay modal-overlay" id="map-details-overlay"></div>
+    <div class="vm--modal modal-popup" id="map-details-modal" style="min-width: 50rem;">
+        <div class="top-bar">
+            <div class="home"></div>
+            <div class="name-page" id="details-map-name">MAP DETAILS</div>
+            <div class="close modal-close" onclick="closeMapDetails()"></div>
+        </div>
+        <div class="content"
+            style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+            <img id="details-map-image" src="" alt="Map"
+                style="max-width: 100%; height: auto; max-height: 400px; border-radius: 4px;">
+            <div style="display: flex; gap: 1rem;">
+                <button class="map-btn" id="details-download-btn" style="flex: 1; min-width: 150px;">DOWNLOAD
+                    TXT</button>
+                <button class="map-btn" id="details-open-btn" style="flex: 1; min-width: 150px;">OPEN FILE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RENDERS MODAL -->
+    <div class="vm--overlay modal-overlay" id="renders-overlay"></div>
+    <div class="vm--modal modal-popup" id="renders-modal" style="min-width: 70rem;">
+        <div class="top-bar">
+            <div class="home"></div>
+            <div class="name-page">RENDERS</div>
+            <div class="close modal-close"></div>
+        </div>
+        <div class="content"
+            style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <!-- Color Render -->
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/Color-render.png" alt="Color" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        Color Render</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character visualization</div>
+                </div>
+            </div>
+            <!-- Franken-James Render -->
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/Franken-James-render.png" alt="Franken-James" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        Franken-James</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
+                </div>
+            </div>
+            <!-- Helizabet Render -->
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/Helizabet-render.png" alt="Helizabet" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        Helizabet</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
+                </div>
+            </div>
+            <!-- Janett Render -->
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/Janett-render.png" alt="Janett" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        Janett</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
+                </div>
+            </div>
+            <!-- Mangle Render -->
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/Mangle-render.png" alt="Mangle" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        Mangle</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
+                </div>
+            </div>
+            <!-- XRay-James Render -->
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/XRay-James-render.png" alt="XRay-James" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        XRay-James</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
+                </div>
+            </div>
+            <div class="card-cont render-card" hover="">
+                <img src="/imgs/chars/IMGERROR-render.png" alt="IMGERROR" class="render-image">
+                <div class="render-info">
+                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        IMGERROR</div>
+                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/username.js" defer></script>
+    <script src="/avatar.js" defer></script>
+
+    <script>
+        // Map details management
+        function showMapDetails(mapName, imageName, txtFileName) {
+            const detailsModal = document.getElementById('map-details-modal');
+            const detailsOverlay = document.getElementById('map-details-overlay');
+            const mapImage = document.getElementById('details-map-image');
+            const mapNameEl = document.getElementById('details-map-name');
+            const downloadBtn = document.getElementById('details-download-btn');
+            const openBtn = document.getElementById('details-open-btn');
+
+            // Set the name and image
+            mapNameEl.textContent = mapName.toUpperCase();
+            mapImage.src = `/imgs/maps/${imageName}`;
+            mapImage.alt = mapName;
+
+            // Set button actions
+            downloadBtn.onclick = () => downloadMap(txtFileName);
+            openBtn.onclick = () => window.open(`/imgs/maps/${txtFileName}`, '_blank');
+
+            // Show the modal
+            detailsModal.style.display = 'flex';
+            detailsOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMapDetails() {
+            const detailsModal = document.getElementById('map-details-modal');
+            const detailsOverlay = document.getElementById('map-details-overlay');
+
+            detailsModal.style.display = 'none';
+            detailsOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Download map file function
+        function downloadMap(filename) {
+            fetch(`/imgs/maps/${filename}`)
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(err => console.error('Download failed:', err));
+        }
+
+        // Character selection function
+        function selectCharacter(charName, imagePath) {
+            document.getElementById('char-preview').src = imagePath;
+            document.getElementById('char-preview-name').textContent = charName;
+        }
+
+        // Switch between character tabs
+        function switchCharacterTab(tab) {
+            const inGameGrid = document.getElementById('in-game-grid');
+            const madeGrid = document.getElementById('made-grid');
+            const tabInGame = document.getElementById('tab-in-game');
+            const tabMade = document.getElementById('tab-made');
+
+            if (tab === 'in-game') {
+                inGameGrid.style.display = 'grid';
+                madeGrid.style.display = 'none';
+                tabInGame.style.color = 'var(--gold-1)';
+                tabInGame.style.borderBottom = '3px solid var(--gold-1)';
+                tabMade.style.color = 'var(--gray-2)';
+                tabMade.style.borderBottom = 'none';
+            } else if (tab === 'made') {
+                inGameGrid.style.display = 'none';
+                madeGrid.style.display = 'grid';
+                tabInGame.style.color = 'var(--gray-2)';
+                tabInGame.style.borderBottom = 'none';
+                tabMade.style.color = 'var(--gold-1)';
+                tabMade.style.borderBottom = '3px solid var(--gold-1)';
             }
-            function closeImageModal(e) {
-                // Only close if clicking the overlay or close button, not the image itself
-                if (e.target.classList.contains('img-modal') || e.target.classList.contains('img-modal-close')) {
-                    document.getElementById('img-modal').style.display = "none";
-                    document.body.style.overflow = "";
+        }
+
+        // Update username in character modal
+        function updateCharacterUsername() {
+            const usernameEl = document.getElementById('username');
+            const charUsernameEl = document.getElementById('char-username');
+            if (usernameEl && charUsernameEl) {
+                charUsernameEl.textContent = usernameEl.textContent;
+            }
+        }
+
+        // Watch for username changes
+        const observer = new MutationObserver(updateCharacterUsername);
+        const usernameEl = document.getElementById('username');
+        if (usernameEl) {
+            observer.observe(usernameEl, { childList: true, subtree: true, characterData: true });
+        }
+
+        // Modal management
+        const modalButtons = document.querySelectorAll('[data-modal]');
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const overlay = document.getElementById(modalId.replace('modal', 'overlay'));
+
+            if (modal && overlay) {
+                modal.style.display = 'flex';
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+
+                // Update username for characters modal
+                if (modalId === 'characters-modal') {
+                    updateCharacterUsername();
                 }
             }
-        </script>
-    </section>
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const overlay = document.getElementById(modalId.replace('modal', 'overlay'));
+
+            if (modal && overlay) {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add click handlers to sidebar buttons
+        modalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const modalId = button.getAttribute('data-modal');
+                openModal(modalId);
+            });
+        });
+
+        // Add click handlers to close buttons
+        const closeButtons = document.querySelectorAll('.modal-close');
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Find the parent modal
+                const modal = btn.closest('.modal-popup');
+                if (modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Add click handlers to overlays (close modal when clicking outside)
+        const overlays = document.querySelectorAll('.modal-overlay');
+        overlays.forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    const modalId = overlay.id.replace('overlay', 'modal');
+                    closeModal(modalId);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
