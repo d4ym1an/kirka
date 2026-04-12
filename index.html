@@ -101,6 +101,7 @@
             </div>
             <div class="icon-btn text-1" data-modal="renders-modal">
                 <div class="wrapper">
+                    <img src="/imgs/map_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Renders Icon" class="icon" style="width: 100px; height: 100px;">
                     <div class="text-icon">RENDERS</div>
                 </div>
             </div>
@@ -186,15 +187,41 @@
         </div>
 
     </div>
-
+    <!-- PROJECTS MODAL -->
+         <div class="vm--overlay modal-overlay" id="projects-overlay"></div>
+    <div class="vm--modal modal-popup" id="projects-modal" style="min-width: 70rem; max-width: 95vw;">
+        <div class="top-bar">
+            <div class="home">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </div>
+            <div class="close modal-close">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </div>
+        </div>
+        <div class="content"
+            style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
     <!-- CHARACTERS MODAL -->
     <div class="vm--overlay modal-overlay" id="characters-overlay"></div>
     <div class="vm--modal modal-popup" id="characters-modal"
         style="min-width: 80rem; max-width: 95vw; flex-direction: column;">
         <div class="top-bar">
-            <div class="home"></div>
+            <div class="home">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </div>
             <div class="name-page">INVENTORY</div>
-            <div class="close modal-close"></div>
+            <div class="close modal-close">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </div>
         </div>
         <div style="display: flex; height: calc(100% - 2.5rem); background: var(--panel-3);">
             <!-- Left side - Character preview -->
@@ -212,17 +239,21 @@
 
             <!-- Right side - Character grid -->
             <div style="flex: 1; padding: 2rem; overflow-y: auto;">
-                <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid var(--panel-6); padding-bottom: 1rem;">
-                    <div id="tab-in-game" onclick="switchCharacterTab('in-game')" style="color: var(--gold-1); font-weight: bold; cursor: pointer; border-bottom: 3px solid var(--gold-1); padding-bottom: 0.5rem;">
+                <div
+                    style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid var(--panel-6); padding-bottom: 1rem;">
+                    <div id="tab-in-game" onclick="switchCharacterTab('in-game')"
+                        style="color: var(--gold-1); font-weight: bold; cursor: pointer; border-bottom: 3px solid var(--gold-1); padding-bottom: 0.5rem;">
                         IN-GAME CHARACTERS
                     </div>
-                    <div id="tab-made" onclick="switchCharacterTab('made')" style="color: var(--gray-2); cursor: pointer;">
+                    <div id="tab-made" onclick="switchCharacterTab('made')"
+                        style="color: var(--gray-2); cursor: pointer;">
                         CHARACTERS MADE
                     </div>
 
                 </div>
 
-                <div id="in-game-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem;">
+                <div id="in-game-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem;">
                     <!-- Ripped Santa Character -->
                     <div class="character-card"
                         onclick="selectCharacter('Ripped Santa', '/imgs/chars/Ripped_Santa-render.png')">
@@ -287,33 +318,68 @@
                     <div class="character-card"
                         onclick="selectCharacter('Flowchie (BUGGED)', 'https://kirka.lukeskywalk.com/static/renders/Character/Flowchie-render.png')">
                         <div class="character-img-wrapper">
-                            <img src="https://kirka.lukeskywalk.com/static/renders/Character/Flowchie-render.png" alt="Flowchie">
+                            <img src="https://kirka.lukeskywalk.com/static/renders/Character/Flowchie-render.png"
+                                alt="Flowchie">
                         </div>
                         <div class="character-label unobtainable">Flowchie (BUGGED)</div>
                     </div>
+                    <div class="character-card"
+                        onclick="selectCharacter('Grayscale', 'https://kirka.lukeskywalk.com/static/renders/Character/Grayscale-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="https://kirka.lukeskywalk.com/static/renders/Character/Grayscale-render.png"
+                                alt="Grayscale">
+                        </div>
+                        <div class="character-label unobtainable">Grayscale</div>
+                    </div>
+                    <div class="character-card"
+                        onclick="selectCharacter('Minty', 'https://kirka.lukeskywalk.com/static/renders/Character/Minty-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="https://kirka.lukeskywalk.com/static/renders/Character/Minty-render.png"
+                                alt="Minty">
+                        </div>
+                        <div class="character-label unobtainable">Minty</div>
+                    </div>
                 </div>
 
-                <div id="made-grid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem; grid-auto-rows: 1fr;">
+                <div id="made-grid"
+                    style="display: none; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1.5rem; grid-auto-rows: 1fr;">
                     <!-- Custom Character 1 -->
-                    <div class="character-card" onclick="selectCharacter('Custom Skin 1', '/imgs/chars/Color-render.png')">
+                    <div class="character-card"
+                        onclick="selectCharacter('Laundered', '/imgs/chars/laundered-render.png')">
                         <div class="character-img-wrapper">
-                            <img src="/imgs/chars/Color-render.png" alt="Custom Skin 1">
+                            <img src="/imgs/chars/laundered-render.png" alt="Laundered">
                         </div>
-                        <div class="character-label epic">Custom Skin 1</div>
+                        <div class="character-label unobtainable">Laundered</div>
                     </div>
                     <!-- Custom Character 2 -->
-                    <div class="character-card" onclick="selectCharacter('Custom Skin 2', '/imgs/chars/Janett-render.png')">
+                    <div class="character-card"
+                        onclick="selectCharacter('Carleen', '/imgs/chars/Carleen-render.png')">
                         <div class="character-img-wrapper">
-                            <img src="/imgs/chars/Janett-render.png" alt="Custom Skin 2">
+                            <img src="/imgs/chars/Carleen-render.png" alt="Carleen">
                         </div>
-                        <div class="character-label mythical">Custom Skin 2</div>
+                        <div class="character-label unobtainable">Carleen</div>
                     </div>
                     <!-- Custom Character 3 -->
-                    <div class="character-card" onclick="selectCharacter('Custom Skin 3', '/imgs/chars/Mangle-render.png')">
+                    <div class="character-card"
+                        onclick="selectCharacter('Shocked', '/imgs/chars/Shocked-render.png')">
                         <div class="character-img-wrapper">
-                            <img src="/imgs/chars/Mangle-render.png" alt="Custom Skin 3">
+                            <img src="/imgs/chars/Shocked-render.png" alt="Shocked">
                         </div>
-                        <div class="character-label epic">Custom Skin 3</div>
+                        <div class="character-label unobtainable">Shocked</div>
+                    </div>
+                    <div class="character-card"
+                        onclick="selectCharacter('Agent K', '/imgs/chars/Agent_K-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Agent_K-render.png" alt="Agent K">
+                        </div>
+                        <div class="character-label unobtainable">Agent K</div>
+                    </div>
+                    <div class="character-card"
+                        onclick="selectCharacter('Shocked', '/imgs/chars/Shocked-render.png')">
+                        <div class="character-img-wrapper">
+                            <img src="/imgs/chars/Shocked-render.png" alt="Shocked">
+                        </div>
+                        <div class="character-label unobtainable">Shocked</div>
                     </div>
                 </div>
             </div>
@@ -324,9 +390,17 @@
     <div class="vm--overlay modal-overlay" id="maps-overlay"></div>
     <div class="vm--modal modal-popup" id="maps-modal" style="min-width: 70rem; max-width: 95vw;">
         <div class="top-bar">
-            <div class="home"></div>
-            <div class="name-page">MAPS</div>
-            <div class="close modal-close"></div>
+            <div class="home">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </div>
+            <div class="close modal-close">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </div>
         </div>
         <div class="content"
             style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
@@ -362,7 +436,9 @@
             <!-- Base Map -->
             <div class="map-thumbnail" onclick="showMapDetails('Base', 'Base.jpg', 'Base.txt')">
                 <img src="/imgs/maps/Base.jpg" alt="Base">
-                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;"><div class="map-info-bubble">Worked with: sabe</div></a>
+                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;">
+                    <div class="map-info-bubble">Worked with: sabe</div>
+                </a>
                 <div class="map-overlay">
                     <span class="map-name">Base - DM / TDM / POINT</span>
                 </div>
@@ -370,7 +446,9 @@
             <!-- Treeline Map -->
             <div class="map-thumbnail" onclick="showMapDetails('Treeline', 'Treeline.jpg', 'Treeline.txt')">
                 <img src="/imgs/maps/Treeline.jpg" alt="Treeline">
-                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;"><div class="map-info-bubble">Worked with: sabe</div></a>
+                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;">
+                    <div class="map-info-bubble">Worked with: sabe</div>
+                </a>
                 <div class="map-overlay">
                     <span class="map-name">Treeline - 1V1</span>
                 </div>
@@ -378,7 +456,9 @@
             <!-- SK8 Map -->
             <div class="map-thumbnail" onclick="showMapDetails('SK8', 'Sk8.jpg', 'sk8.txt')">
                 <img src="/imgs/maps/Sk8.jpg" alt="SK8">
-                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;"><div class="map-info-bubble">Worked with: sabe</div></a>
+                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;">
+                    <div class="map-info-bubble">Worked with: sabe</div>
+                </a>
                 <div class="map-overlay">
                     <span class="map-name">SK8 - TKO</span>
                 </div>
@@ -386,7 +466,9 @@
             <!-- Vesta Map -->
             <div class="map-thumbnail" onclick="showMapDetails('Vesta', 'Vesta.jpg', 'Vesta.txt')">
                 <img src="/imgs/maps/Vesta.jpg" alt="Vesta">
-                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;"><div class="map-info-bubble">Worked with: sabe</div></a>
+                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;">
+                    <div class="map-info-bubble">Worked with: sabe</div>
+                </a>
                 <div class="map-overlay">
                     <span class="map-name">Vesta - DM / TDM / POINT</span>
                 </div>
@@ -395,7 +477,9 @@
             <!-- Bulwark Map -->
             <div class="map-thumbnail" onclick="showMapDetails('Bulwark', 'Bulwark.jpg', 'bulwarkPoint.txt')">
                 <img src="/imgs/maps/Bulwark.jpg" alt="Bulwark">
-                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;"><div class="map-info-bubble">Worked with: sabe</div></a>
+                <a href="https://www.twitch.tv/s4b3__" target="_blank" style="text-decoration: none;">
+                    <div class="map-info-bubble">Worked with: sabe</div>
+                </a>
                 <div class="map-overlay">
                     <span class="map-name">Bulwark - SAD</span>
                 </div>
@@ -407,9 +491,18 @@
     <div class="vm--overlay modal-overlay" id="map-details-overlay"></div>
     <div class="vm--modal modal-popup" id="map-details-modal" style="min-width: 50rem;">
         <div class="top-bar">
-            <div class="home"></div>
+            <div class="home">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </div>
             <div class="name-page" id="details-map-name">MAP DETAILS</div>
-            <div class="close modal-close" onclick="closeMapDetails()"></div>
+            <div class="close modal-close" onclick="closeMapDetails()">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </div>
         </div>
         <div class="content"
             style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
@@ -427,79 +520,27 @@
     <div class="vm--overlay modal-overlay" id="renders-overlay"></div>
     <div class="vm--modal modal-popup" id="renders-modal" style="min-width: 70rem;">
         <div class="top-bar">
-            <div class="home"></div>
+            <div class="home">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </div>
             <div class="name-page">RENDERS</div>
-            <div class="close modal-close"></div>
+            <div class="close modal-close">
+                <svg class="icon svg-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </div>
         </div>
         <div class="content"
             style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-            <!-- Color Render -->
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/Color-render.png" alt="Color" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        Color Render</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character visualization</div>
-                </div>
-            </div>
-            <!-- Franken-James Render -->
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/Franken-James-render.png" alt="Franken-James" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        Franken-James</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
-                </div>
-            </div>
-            <!-- Helizabet Render -->
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/Helizabet-render.png" alt="Helizabet" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        Helizabet</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
-                </div>
-            </div>
-            <!-- Janett Render -->
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/Janett-render.png" alt="Janett" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        Janett</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
-                </div>
-            </div>
-            <!-- Mangle Render -->
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/Mangle-render.png" alt="Mangle" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        Mangle</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
-                </div>
-            </div>
-            <!-- XRay-James Render -->
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/XRay-James-render.png" alt="XRay-James" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        XRay-James</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
-                </div>
-            </div>
-            <div class="card-cont render-card" hover="">
-                <img src="/imgs/chars/IMGERROR-render.png" alt="IMGERROR" class="render-image">
-                <div class="render-info">
-                    <div style="color: var(--gold-1); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                        IMGERROR</div>
-                    <div style="color: #fff; font-size: 0.9rem;">Character design</div>
-                </div>
-            </div>
         </div>
     </div>
 
     <script src="/username.js" defer></script>
     <script src="/avatar.js" defer></script>
+    <script src="/local-renders.js" defer></script>
 
     <script>
         // Map details management

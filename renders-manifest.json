@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1example_file_id_1",
+    "name": "Render 1",
+    "thumbnailLink": "https://lh3.googleusercontent.com/YOUR_THUMBNAIL_ID=w220",
+    "webViewLink": "https://drive.google.com/file/d/1example_file_id_1/view?usp=sharing",
+    "webContentLink": "https://drive.google.com/uc?id=1example_file_id_1&export=download"
+  },
+  {
+    "id": "1example_file_id_2",
+    "name": "Render 2",
+    "thumbnailLink": "https://lh3.googleusercontent.com/YOUR_THUMBNAIL_ID=w220",
+    "webViewLink": "https://drive.google.com/file/d/1example_file_id_2/view?usp=sharing",
+    "webContentLink": "https://drive.google.com/uc?id=1example_file_id_2&export=download"
+  }
+]
