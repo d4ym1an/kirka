@@ -174,7 +174,7 @@
                         </button>
                     </div>
                 </a>
-                <button class="button play-btn shiny"
+                <button class="button play-btn shiny" data-modal="projects-modal"
                     style="background-color: var(--gold-1); --hover-color: var(--gold-2); --top: var(--gold-2); --bottom: var(--gold-3);">
                     <div class="triangle"></div>
                     <div class="text">PROJECTS</div>
@@ -205,6 +205,46 @@
         </div>
         <div class="content"
             style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <!-- Project 1 -->
+            <a href="https://github.com/d4ym1an/kirka-clients" target="_blank" style="text-decoration: none;">
+                <div class="card-cont" hover=""
+                    style="padding: 1rem; min-width: 200px; display: flex; gap: 1rem; align-items: center;">
+                    <img src="https://client.kirka.io/images/icon.png" alt="Kirka Logo"
+                        style="width: auto; height: 48px; flex-shrink: 0; border-radius: 4px;">
+                    <div>
+                        <div style="color: var(--gold-1); font-weight: bold; margin-bottom: 0.5rem;">KIRKA CLIENT LISTS</div>
+                        <div style="color: #fff; font-size: 0.9rem;">VIEW ALL CLIENTS HERE</div>
+                    </div>
+                </div>
+            </a>
+            <!-- PROJECT 2 -->
+            <a href="https://css.daymian.xyz" target="_blank" style="text-decoration: none;">
+                <div class="card-cont" hover=""
+                    style="padding: 1rem; min-width: 200px; display: flex; gap: 1rem; align-items: center;">
+                    <img src="https://raw.githubusercontent.com/d4ym1an/css/refs/heads/main/imgs/icon.png" alt="CSSARENA Logo"
+                        style="width: auto; height: 48px; flex-shrink: 0; border-radius: 4px;">
+                    <div>
+                        <div style="color: var(--gold-1); font-weight: bold; margin-bottom: 0.5rem;">CSSARENA</div>
+                        <div style="color: #fff; font-size: 0.9rem;">FREE KIRKA CSS HERE</div>
+                    </div>
+                </div>
+            </a>
+            <!-- PROJECT 3 -->
+            <a href="#" target="_blank" style="text-decoration: none;">
+                <div class="card-cont" hover=""
+                    style="padding: 1rem; min-width: 200px; display: flex; gap: 1rem; align-items: center;">
+                    <img src="https://client.kirka.io/images/icon.png" alt="Character Pack"
+                        style="width: auto; height: 48px; flex-shrink: 0; border-radius: 4px;">
+                    <div>
+                        <div style="color: var(--gold-1); font-weight: bold; margin-bottom: 0.5rem;">COLOR SET</div>
+                        <div style="color: #fff; font-size: 0.9rem;">KIRKA CHARACTER PACK</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
     <!-- CHARACTERS MODAL -->
     <div class="vm--overlay modal-overlay" id="characters-overlay"></div>
     <div class="vm--modal modal-popup" id="characters-modal"
